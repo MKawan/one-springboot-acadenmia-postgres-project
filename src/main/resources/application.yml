@@ -1,0 +1,17 @@
+spring.application.name: one-springboot-acadenmia-postgres-project
+
+server:
+    port: 5505
+spring: 
+    datasource:
+        url: jdbc:postgresql://localhost:5434/academia
+        username: kawan
+        password: f123
+    jpa:
+        properties:
+            hibernate.format_sql:  true
+            dialect: org.hibernate.dialect.PostgreSQLDialect 
+        show-sql: true
+        hibernate:
+            ddl-auto:  update
+        
