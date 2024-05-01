@@ -5,6 +5,7 @@ import java.time.LocalDate;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import javax.validation.constraints.*;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Past;
 import lombok.AllArgsConstructor;
@@ -28,14 +29,20 @@ public class AlunoForm {
 		this.id = id;
 	}
 
+	@NotEmpty(message = "Preencha o campo corretamente.")
+	@Size(min = 3, max =50, message = "'${validatedValue}' precisa estar entre {min} e {max} caracteres.")
 	private String nome;
-	
+
+	@NotEmpty(message = "Preencha o campo corretamente.")
+	  //@CPF(message = "'${validatedValue}' é inválido!")
 	private String cpf;
-	
+
+	@NotEmpty(message = "Preencha o campo corretamente.")
+	@Size(min = 3, max =50, message = "'${validatedValue}' precisa estar entre {min} e {max} caracteres.")
 	private String bairro;
 	
-	  @NotNull(message = "Prencha o campo corretamente.")
-	  @Past(message = "Data '${validatedValue}' é inválida.")
+	@NotNull(message = "Prencha o campo corretamente.")
+	@Past(message = "Data '${validatedValue}' é inválida.")
 	private LocalDate dataDeNascimento;
 	
 	public String getNome() {
